@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-navbar hideBackButton="true">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      <ion-icon name="md-trophy" item-left></ion-icon> Take Assessment
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding="true" class="has-header">
+  <div class="item item-body" id="menu-list-item-container">
+    <h4 id="takeassessment-heading1" style="color:#886AEA;text-align:center;">
+      Important Information
+    </h4>
+    <div id="home-markdown1" class="show-list-numbers-and-dots">
+      <p style="color:#000000;font-style:italic;font-weight: bold">
+        1. There is {{quiz_time>0?quiz_time+' minutes time limit':'NO time limit'}} for this assessment.
+      </p>
+      <p style="color:#000000;font-style:italic;font-weight: bold">
+        2. There are {{question_count}} questions in this assessment.
+      </p>
+      <p style="color:#000000;font-style:italic;font-weight: bold">
+        3. Please select ‘Previous’ or ‘Next’ to go to previous or next question respectively.
+      </p>
+      <p style="color:#000000;font-style:italic; font-weight: bold">
+        4. Please select ‘Submit Assessment’ when you are ready to submit assessment.
+      </p>
+      <p style="color:#000000;font-style:italic;font-weight: bold">
+        Ready? Press 'Start Assessment' button below
+      </p>
+      <p style="text-align:center;">
+        <button ion-button icon-end color="secondary" (click)="back()">
+          <ion-icon name="ios-arrow-back"></ion-icon>&nbsp;Back
+        </button>
+        <button ion-button (click)="takeAssessment()" icon-end>
+          <ion-icon name="md-trophy"></ion-icon>&nbsp;Start Assessment
+        </button>
+      </p>
+    </div>
+  </div>
+</ion-content>

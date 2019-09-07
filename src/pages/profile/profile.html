@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      <ion-icon name="ios-contact" item-left></ion-icon> Profile
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding="true" class="has-header">
+  <div class="item item-body" id="menu-list-item-container">
+    <h4 id="menu-heading" style="color:#886AEA;font-weight:600;">Business Name : {{child.parent_name}}</h4>
+    <div id="menu-markdown" style="text-align:justify;" class="show-list-numbers-and-dots">
+      <p style="margin-top:0px;color:#000000;font-size:14px;font-style:italic;">Name : {{child.child_name}}</p>
+    </div>
+    <div id="menu-markdown" style="text-align:justify;" class="show-list-numbers-and-dots">
+      <p style="margin-top:0px;color:#000000;font-size:14px;font-style:italic;">Email : {{child.email_address}}</p>
+    </div>
+    <div id="contact-markdown" style="text-align:justify;" class="show-list-numbers-and-dots">
+      <p style="color:#000000;font-size:14px;font-style:italic;">User Name : {{child.user_name}}</p>
+    </div>
+    <div class="spacer" style="width:300px;height:10px;" id="home-spacer4"></div>
+    <button ion-button round block icon-start (click)="goToAssessments()">
+      <ion-icon name="logo-buffer" item-left></ion-icon> Go To Assessments
+    </button>
+  </div>
+</ion-content>

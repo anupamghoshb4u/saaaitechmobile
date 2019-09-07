@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      <ion-icon name="home" item-left></ion-icon> Attempts
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding="true" class="has-header">
+  <div class="item item-body" id="menu-list-item-container" *ngFor="let quizresult of quizresults">
+    <h4 id="home-heading1" style="color:#886AEA;text-align:center;">
+      Quiz Name: {{quizresult.quiz_name}}
+    </h4>
+    <div id="home-markdown1" style="text-align:center;" class="show-list-numbers-and-dots">
+      <p style="color:#000000;font-style:italic;">
+        Total Question: {{quizresult.question_count}}
+      </p>
+    </div>
+    <div id="home-markdown2" style="text-align:center;" class="show-list-numbers-and-dots">
+      <p style="color:#000000;font-style:italic;">
+        Questions Attempted: {{quizresult.question_attempt}}
+      </p>
+    </div>
+    <div id="home-markdown3" style="text-align:center;" class="show-list-numbers-and-dots">
+      <p style="color:#000000;font-style:italic;">
+        Child Name: {{quizresult.child_name}}
+      </p>
+    </div>
+    <div id="home-markdown4" style="text-align:center;" class="show-list-numbers-and-dots">
+      <p style="color:#000000;font-style:italic;">
+        Start Date: {{(quizresult.quiz_start_date*1000) | date: 'dd-MM-yyyy HH:mm:ss'}}
+      </p>
+    </div>
+    <div id="home-markdown5" style="text-align:center;" class="show-list-numbers-and-dots">
+      <p style="color:#000000;font-style:italic;">
+        End Date: {{(quizresult.quiz_end_date*1000) | date: 'dd-MM-yyyy HH:mm:ss'}}
+      </p>
+    </div>
+    <div class="spacer" style="width:300px;height:20px;" id="home-spacer"></div>
+  </div>
+</ion-content>

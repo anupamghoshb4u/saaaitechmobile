@@ -1,0 +1,81 @@
+<ion-header>
+  <ion-navbar hideBackButton="true">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      <ion-icon name="md-trophy" item-left></ion-icon> Take Assessment
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding="true" class="has-header">
+  <div class="item item-body" id="menu-list-item-container">
+    <h3 id="takeassessment-heading1" style="color:#886AEA;text-align:center;">
+      {{quiz_name}}
+    </h3>
+    <p style="text-align:center;color:#000000;font-weight:bold;" [innerHTML]="timer">&nbsp;</p>
+    <p style="text-align:center;">
+      <button ion-button color="danger" (click)="submitQuiz()" icon-end>Submit Assessment</button>
+    </p>
+    <p style="text-align:center;">
+      <button ion-button color="secondary" icon-end>Question {{question_no}}</button>
+    </p>
+    <p style="text-align:center;">
+      <button ion-button (click)="backQuestion()" *ngIf="question_no>1" icon-end>
+        <ion-icon name="ios-rewind"></ion-icon>&nbsp;&nbsp;Previous
+      </button>
+      <button ion-button (click)="nextQuestion()" *ngIf="question_no<question_count" icon-end>
+        Next&nbsp;&nbsp;<ion-icon name="ios-fastforward"></ion-icon>
+      </button>
+    </p>
+    <p style="text-align:center;">
+      <ion-label>Review Later</ion-label>
+      <ion-checkbox color="dark" [checked]="is_review_later" [(ngModel)]="is_review_later"></ion-checkbox>
+    </p>
+    <p style="text-align:center;">
+      <ion-item>
+        <ion-label>Language</ion-label>
+        <ion-select [(ngModel)]="language_id" (ngModelChange)="changeLanguage($event)">
+          <div *ngFor="let language of languages">
+            <ion-option value="{{language.language_id}}" [selected]="language.language_id == '1'">
+              {{language.language_name}}</ion-option>
+          </div>
+        </ion-select>
+      </ion-item>
+    </p>
+    <h4 id="takeassessment-heading1" style="color:#000000;font-weight:400;" [innerHTML]="question.question_desc"
+      id="question_desc">&nbsp;</h4>
+    <ion-list radio-group [(ngModel)]="question_answer_id" name="question_answer_id">
+      <ion-item *ngFor="let questionanswer of questionanswers; let p = index" text-wrap>
+        <ion-label>
+          <p style="color:#000000;font-style:italic;font-weight:bold" [innerHTML]="questionanswer.answer"
+            id="answer_{{p}}">&nbsp;</p>
+        </ion-label>
+        <ion-radio value="{{questionanswer.question_answer_id}}"></ion-radio>
+      </ion-item>
+    </ion-list>
+    <div class="spacer" style="width:300px;height:20px;" id="takeassessment-spacer1"></div>
+    <p style="text-align:center;">
+      <span *ngFor="let currentquestion of currentquestions; let i = index" [attr.data-index]="i">
+        <button ion-button color="{{currentquestion.is_review_later=='1'?'dark':(currentquestion.answered=='1'?'secondary':'light')}}" (click)="goToQuestion(i)"
+          icon-end>{{i+1}}</button>
+      </span>
+    </p>
+    <div class="spacer" style="width:300px;height:20px;" id="takeassessment-spacer2"></div>
+    <p style="text-align:center;">
+      <button ion-button color="secondary" icon-end>Answered</button>
+      <button ion-button color="light" icon-end>Unanswered</button>
+      <button ion-button color="dark" icon-end>Review Later</button>
+    </p>
+    <div class="spacer" style="width:300px;height:20px;" id="takeassessment-spacer3"></div>
+    <p style="text-align:center;">
+      <button ion-button (click)="backQuestion()" *ngIf="question_no>1" icon-end>
+        <ion-icon name="ios-rewind"></ion-icon>&nbsp;&nbsp;Previous
+      </button>
+      <button ion-button (click)="nextQuestion()" *ngIf="question_no<question_count" icon-end>
+        Next&nbsp;&nbsp;<ion-icon name="ios-fastforward"></ion-icon>
+      </button>
+    </p>
+  </div>
+</ion-content>

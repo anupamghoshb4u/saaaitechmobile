@@ -1,0 +1,22 @@
+page-profile {
+    .item {
+        border-color: #ddd;
+        background-color: #fff;
+        color: #444;
+        position: relative;
+        z-index: 2;
+        display: block;
+        margin: -1px;
+        padding: 16px;
+        border-width: 1px;
+        border-style: solid;
+        font-size: 16px; 
+    }
+
+    .item-body {
+        overflow: auto;
+        padding: 16px;
+        text-overflow: inherit;
+        white-space: normal; 
+    }
+}

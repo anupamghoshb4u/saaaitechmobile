@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-navbar hideBackButton="true">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      <ion-icon name="log-in" item-left></ion-icon> Login
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding="true" class="has-header">
+  <div class="item item-body" id="menu-list-item-container">
+    <ion-card>
+      <ion-card-content>
+        <ion-list>
+          <ion-item>
+            <ion-label fixed>Username:</ion-label>
+            <ion-input type="text" placeholder="User Name" [(ngModel)]="user_name"></ion-input>
+          </ion-item>
+          <div class="spacer" style="width:300px;height:20px;" id="login-spacer1"></div>
+          <ion-item>
+            <ion-label fixed>Password:</ion-label>
+            <ion-input type="password" placeholder="Password" [(ngModel)]="password"></ion-input>
+          </ion-item>
+          <ion-item text-center>
+            <button ion-button round block (click)="checkLogin()">
+              <ion-icon name="log-in" item-left></ion-icon> Login
+            </button>
+          </ion-item>
+        </ion-list>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

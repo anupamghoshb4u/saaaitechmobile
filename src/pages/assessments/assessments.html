@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      <ion-icon name="logo-buffer" item-left></ion-icon> Assessments
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding="true" class="has-header">
+  <div *ngFor="let assessment of assessments">
+    <div class="item item-body" id="menu-list-item-container">
+      <h4 id="menu-heading" style="color:#886AEA;font-weight:600;">{{assessment.quiz_name}}</h4>
+      <div id="menu-markdown" style="text-align:justify;" class="show-list-numbers-and-dots">
+        <p style="margin-top:0px;color:#000000;font-size:14px;font-style:italic;" [innerHTML]="assessment.quiz_desc">
+        </p>
+      </div>
+      <h5 id="contact-heading" style="color:#D62C2C;font-weight:600;font-style:italic;">Time</h5>
+      <div id="contact-markdown" style="text-align:justify;" class="show-list-numbers-and-dots">
+        <p style="color:#000000;font-size:14px;font-style:italic;">{{assessment.quiz_time}} Minutes</p>
+      </div>
+      <p style="text-align:right;">
+        <button ion-button icon-end (click)="takeAssessment(assessment.quiz_id)">Take Assessment<ion-icon
+            name="md-arrow-dropright"></ion-icon></button>
+      </p>
+    </div>
+    <div class="spacer" style="width: 300px; height: 22px;"></div>
+  </div>
+</ion-content>

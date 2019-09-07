@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      <ion-icon name="home" item-left></ion-icon> Home
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding="true" class="has-header">
+  <div class="item item-body" id="menu-list-item-container">
+    <img src="assets/imgs/sidemenu-bg.jpg"
+      style="display:block;width:100%;height:auto;margin-left:auto;margin-right:auto;" />
+    <h3 id="home-heading1" style="color:#886AEA;text-align:center;">
+      SUCCESS SIMPLIFIED
+    </h3>
+    <h4 id="home-heading2" style="color:#000000;font-style:italic;text-align:center;">
+      Online Exam Prepration & Assessment System
+    </h4>
+    <div class="spacer" style="width:300px;height:10px;" id="home-spacer4"></div>
+    <button ion-button round block icon-start (click)="goToLogin()" *ngIf="!auth.isLoggednIn()">
+      <ion-icon name="log-in" item-left></ion-icon> Login
+    </button>
+    <div class="spacer" style="width:300px;height:10px;" id="home-spacer4" *ngIf="!auth.isLoggednIn()"></div>
+    <h4 id="home-heading3" style="color:#886AEA;text-align:center;">
+      Online Test Series & Free Mock Tests For Skilled Assessments
+    </h4>
+    <div id="home-markdown2" style="text-align:center;" class="show-list-numbers-and-dots">
+      <p style="color:#000000;font-style:italic;">
+        Boost your exam preparation with SaaaiTech to crack the most popular competitive exams in India. Select your
+        course and get started.
+      </p>
+    </div>
+  </div>
+</ion-content>
